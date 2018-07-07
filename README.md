@@ -34,9 +34,42 @@ Creació d'una applicació
 $ python manage.py startapp polls
 ```
 
-[Base de dades](https://docs.djangoproject.com/fr/2.0/intro/tutorial02/)
+- [Bases de dades](READMES/BD.md)
+
+Shell
+-----
+```
+$ python manage.py shell
+>>> from polls.models import Choice, Question
+>>> Question.objects.all()
+
+>>> from django.utils import timezone
+>>> q = Question(question_text="What's new?", pub_date=timezone.now())
+>>> q.save()
+
+# Show information
+>>> q.id
+>>> q.question_text
+>>> q.pub_date
+
+# edit
+>>> q.question_text = "What's up?"
+>>> q.save()
+```
+
+Més sobre la shell
+------------------
+```
+>>> Question.objects.filter(id=1)
+>>> Question.objects.get(pk=1)
+>>> q = Question.objects.get(pk=1)
+>>> q.was_published_recently()
+```
+
+Administrador
 -------------
-- Defecte: SQLite
-- Connectors: https://docs.djangoproject.com/fr/2.0/topics/install/#database-installation
-- Engine: https://docs.djangoproject.com/fr/2.0/ref/settings/#std:setting-DATABASE-ENGINE
-- Name: os.path.join(BASE_DIR, 'db.sqlite3'),
+```
+$ python manage.py createsuperuser
+```
+
+- https://docs.djangoproject.com/fr/2.0/intro/tutorial03/
