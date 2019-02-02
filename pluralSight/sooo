@@ -38,3 +38,4 @@ pip install django
 
 ==
 Tocar fichers :D
+https://docs.djangoproject.com/en/1.11/ref/templates/language/#template-inheritance
